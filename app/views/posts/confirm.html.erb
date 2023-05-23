@@ -1,0 +1,13 @@
+<h1>Confirm your post</h1>
+
+<p>You are about to post the following:</p>
+<p><%= @post.content %></p>
+
+<%= form_with model: @post do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "Post" %>
+  <% end %>
+
+  <%= button_to 'Back', {action: 'new'}, method: :get, params: {content: @post.content } %>
+
+  

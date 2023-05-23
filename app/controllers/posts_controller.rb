@@ -42,6 +42,11 @@ def destroy
   redirect_to posts_path
 end
 
+def confirm
+  @post = Post.new(post_params)
+  render :new if @post.invalid?
+end
+
   private
 
   def post_params

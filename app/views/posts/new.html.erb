@@ -8,3 +8,18 @@
   <%= form.submit %>
 </div>
 <% end %>
+
+<% if @post.errors.any? %>
+<div>
+  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <ul>
+  <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_with model: @post, url: {action: 'confirm'} do |form| %>
+<!-- フォームの内容 -->
+<% end %>
