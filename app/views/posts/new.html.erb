@@ -1,7 +1,7 @@
 <%= form_with model: @post do |form| %>
 <div>
   <%= form.label :content %>
-  <%= form.text_area :content %>
+  <%= form.text_area :content, rows: 10, cols: 30, class: "fixed-size" %>
 </div>
 
 <div>
@@ -18,8 +18,4 @@
   <% end %>
   </ul>
 </div>
-<% end %>
-
-<%= form_with model: @post, url: {action: 'confirm'} do |form| %>
-<!-- フォームの内容 -->
 <% end %>
