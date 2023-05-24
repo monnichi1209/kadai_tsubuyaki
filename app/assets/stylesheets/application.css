@@ -32,3 +32,13 @@ footer {
   width: calc(100% - 50px);
 }
 
+.submit-button {
+  position: relative;
+  left: 310px;
+  bottom: 6px;
+}
+
+.top-label {
+  display: block;
+  margin-bottom: 10px;
+}

@@ -2,12 +2,12 @@
 
 <%= form_with model: @post do |form| %>
 <div>
-<%= form.label :content %>
-<%= form.text_area :content %>
+<%= form.label :content, '投稿内容', class: 'top-label' %>
+<%= form.text_area :content, rows: 5, cols: 50, class: "fixed-size" %>
 </div>
 
-<div>
-  <%= form.submit %>
+<div class="submit-button">
+  <%= form.submit '編集完了'%>
 </div>
 <% end %>
 
