@@ -11,9 +11,9 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.content %></td>
-    <td><%= link_to '見る', post %></td>
-    <td><%= link_to '変える', edit_post_path(post) %></td>
-    <td><%= link_to '消す', post, method: :delete, data: { confirm: '本当に消しちゃうの?' } %></td>
+    <td><%= link_to '閲覧', post %></td>
+    <td><%= link_to '編集', edit_post_path(post) %></td>
+    <td><%= link_to '削除', post, method: :delete, data: { confirm: '本当に消しちゃうの?' } %></td>
   </tr>
 <% end %>
 </table>

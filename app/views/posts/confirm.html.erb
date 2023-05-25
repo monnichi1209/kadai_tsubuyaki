@@ -6,8 +6,8 @@
 <%= form_with model: @post do |form| %>
   <%= form.hidden_field :content %>
   <%= form.submit "Post" %>
-  <% end %>
+<% end %>
 
-  <%= button_to 'Back', {action: 'new'}, method: :get, params: {content: @post.content } %>
+<%= button_to 'Back', {action: 'new'}, method: :get, params: {content: @post.content } %>
 
   

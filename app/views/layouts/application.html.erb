@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <h1>Tsubuyaki App</h1>
+      <h1>つぶやき。</h1>
+
     </header>
-  <div class ="container">
-    <%= yield %>
-  </div>
+      <div class ="container">
+      <%= yield %>
+      </div>
 
     <footer>
       <p>Copyright &copy; 2023 Tsubuyaki002. All rights reserved.</p>
     </footer>
+    
   </body>
 </html>
