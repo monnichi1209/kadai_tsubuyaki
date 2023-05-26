@@ -1,13 +1,14 @@
-<h1>Confirm your post</h1>
+<h1>以下の内容で、送信する。</h1>
 
-<p>You are about to post the following:</p>
+<p>あなたは次の内容を投稿しようとしています:</p>
 <p><%= @post.content %></p>
 
-<%= form_with model: @post do |form| %>
+<%= form_with model: @post, local: true do |form| %>
   <%= form.hidden_field :content %>
-  <%= form.submit "Post" %>
+  <%= form.submit "投稿" %>
 <% end %>
 
-<%= button_to 'Back', {action: 'new'}, method: :get, params: {content: @post.content } %>
-
-  
+<%= form_with url: new_post_path, method: :get, local: true do %>
+  <%= hidden_field_tag :content, @post.content %>
+  <%= submit_tag "戻る" %>
+<% end %>

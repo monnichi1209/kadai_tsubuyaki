@@ -1,25 +1,25 @@
-<%= form_with model: @post do |form| %>
-
-<div>
-  <%= form.label :content, '今はどんな気分？' %>
-</div>
-
-<div>
-  <%= form.text_area :content, rows: 5, cols: 50, class: "fixed-size" %>
-</div>
-
-<div>
-  <%= form.submit '投稿する' %>
-</div>
-<% end %>
-
-<% if @post.errors.any? %>
-<div>
-  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-    <ul>
+<%= form_with(model: @post, url: confirm_posts_path, method: :post) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
       <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+        <li><%= message %></li>
       <% end %>
-    </ul>
-</div>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div>
+    <%= form.label :content, '今はどんな気分？' %>
+    </div>
+    <div>
+    <%= form.text_area :content, rows: 5, cols: 50 %>
+    </div>
+  </div>
+
+  <div class="actions form-group">
+    <%= form.submit '投稿する' %>
+  </div>
 <% end %>

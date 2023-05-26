@@ -1,20 +1,28 @@
-class PostsController < ApplicationController
-  def new
-    @post = Post.new
-  end
-
-  def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      redirect_to @post
-    else 
-      render 'new'
+  class PostsController < ApplicationController
+    def new
+      @post = Post.new
+      @post.content = params[:content] if params[:content].present?
     end
-  end
-      
+  
+    def create
+      if params[:back]
+        @post = Post.new(content: params[:content])
+        render :new
+      else
+        @post = Post.new(post_params)
+        if @post.save
+          redirect_to posts_path, notice: "Post created!"
+        else
+          render :new
+        end
+      end
+    end
+  
+
   def show
     @post = Post.find(params[:id])
+    if @post.nil?
+    end
   end
 
   def index
@@ -43,8 +51,15 @@ def destroy
 end
 
 def confirm
+  if params[:post].present?
   @post = Post.new(post_params)
-  render :new if @post.invalid?
+  if @post.invalid?
+    render :confirm
+  end
+else
+  @post = Post.new
+  render :new
+end
 end
 
 private
